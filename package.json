@@ -9,6 +9,9 @@
     "deploy": "vercel deploy"
   },
   "devDependencies": {
-    "parcel": "^2.8.3"
+    "@parcel/transformer-sass": "2.8.3",
+    "parcel": "^2.8.3",
+    "posthtml-doctype": "^1.1.1",
+    "posthtml-include": "^1.7.4"
   }
 }

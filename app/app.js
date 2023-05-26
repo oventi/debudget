@@ -1,8 +1,8 @@
-import {_l} from './danta/ui/lib';
-import {dqs, show} from './danta/ui/util';
+import { _l } from './danta/ui/lib';
+import { dqs, show } from './danta/ui/util';
 
-import {user_crud} from './crud/user'
-import {plan_crud} from './crud/plan'
+import { user_crud } from './crud/user'
+import { plan_crud } from './crud/plan'
 
 const sha256 = async text => {
   const tb = new TextEncoder().encode(text)
@@ -21,21 +21,24 @@ const sha256 = async text => {
 
 const login = async () => {
   const user = user_crud.read()
-  if(user && typeof user === 'object') { return user }
-
+  if (user && typeof user === 'object') { return user }
   user_crud.delete()
   plan_crud.delete()
-  
+
   const section = dqs('section#login')
   const button = dqs('section#login button')
 
   show(section)
 
-  const response = await fetch('/api/hola')
+  const response = await fetch('/api/sum', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ a: 1, b: 2 })
+  })
   dqs('section#login input').value = JSON.stringify(await response.json())
 
 
-  _l(button, 'click',  async () => {
+  _l(button, 'click', async () => {
     const [username, password] = dqs('section#login input', 'all').map(field => field.value)
     console.log(username, password)
   })
@@ -68,10 +71,10 @@ const login = async () => {
 localStorage.clear()
 
 const app_run = async (next_step = 'login') => {
-  switch(next_step) {
+  switch (next_step) {
     case 'login':
       const user = await login()
-      if(!user) return
+      if (!user) return
 
     case 'other':
       console.log('OTHER')
