@@ -7,7 +7,7 @@ export const plan_crud = {
     }
 
     const steps = []
-    for(const expense of expenses) {
+    for (const expense of expenses) {
       const [amount, template] = expense
       spend -= amount
 
@@ -16,23 +16,23 @@ export const plan_crud = {
       })
     }
 
-    plan.update(spend, steps)
+    plan_crud.update(spend, steps)
 
-    return {spend, steps}
+    return { spend, steps }
   },
 
   read() {
-    if('plan' in localStorage) {
-      const {spend, steps} = JSON.parse(localStorage.getItem('plan'))
+    if ('plan' in localStorage) {
+      const { spend, steps } = JSON.parse(localStorage.getItem('plan'))
 
-      return {spend, steps}
+      return { spend, steps }
     }
 
     return null
   },
 
   update(spend, steps) {
-    localStorage.setItem('plan', JSON.stringify({spend, steps}))
+    localStorage.setItem('plan', JSON.stringify({ spend, steps }))
   },
 
   delete() {
