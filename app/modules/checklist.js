@@ -4,7 +4,7 @@ import { dqs, hide, show } from '../danta/ui/util'
 import { todo_list, bs_button } from '../danta/ui'
 import { create_plan } from './plan'
 
-delete_checklist = () => localStorage.removeItem('checklist')
+const delete_checklist = () => localStorage.removeItem('checklist')
 
 const reset = () => {
   const plan_section = dqs('section#plan')

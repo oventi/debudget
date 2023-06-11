@@ -5,7 +5,8 @@
   "source": "app/index.html",
   "scripts": {
     "dev": "parcel app/index.html",
-    "build": "parcel build app/index.html --public-url /debudget",
+    "build": "parcel build app/index.html",
+    "build-subapp": "parcel build app/index.html --public-url /debudget",
     "deploy": "vercel deploy"
   },
   "devDependencies": {
