@@ -7,5 +7,5 @@ export const spend_notification = spend => bs_alert(
     bs_icon('cash-stack')
   ],
   'success',
-  ['d-flex', 'align-items-center']
+  ['d-flex', 'align-items-center', 'mt-2']
 )

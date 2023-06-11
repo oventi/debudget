@@ -1,5 +1,16 @@
-html, body {
+html,
+body {
   height: 100%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 nav {
@@ -7,25 +18,39 @@ nav {
 }
 
 main {
-  height: 90%;
+  height: 95%;
 }
+
+/* login ******************************************************************* */
 
 section#login {
   height: 100%;
 }
 
-section#salary, section#plan {
-  margin: 2% 0;
+/* plan ******************************************************************** */
+
+section#plan {
+  height: 100%;
+
+  table thead th {
+    vertical-align: middle;
+  }
+
+  table tr.expense {
+    td.amount {
+      width: 75px;
+
+      input {
+        text-align: right;
+      }
+    }
+  }
 }
 
-/* ************************************************** */
+/* checklist *************************************************************** */
 
-section#salary label {
-  text-transform: capitalize;
-}
-
-/* ************************************************** */
-
-section#plan .alert {
-  font-size: 125%;
+section#checklist {
+  .alert {
+    font-size: 125%;
+  }
 }

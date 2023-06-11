@@ -1,63 +1,45 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Debudget</title>
-    <meta name="description" content="Simple app to organise your budget." />
-    <meta name="author" content="oventi.org" />
-    <meta property="og:image" content="https://satyr.dev/600x315/green?text=debudget" />
-    <link rel="icon" href="https://satyr.dev/192x192/green?text=D" />
 
-    <!-- TODO; setup the manifest for a PWA -->
-    <!-- link rel="manifest" href="debudget.webmanifest" / -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Debudget</title>
+  <meta name="description" content="Simple app to organise your budget." />
+  <meta name="author" content="oventi.org" />
+  <meta property="og:image" content="https://satyr.dev/600x315/green?text=debudget" />
+  <link rel="icon" href="https://satyr.dev/192x192/green?text=D" />
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      crossorigin="anonymous"
-    />
+  <!-- TODO; setup the manifest for a PWA -->
+  <!-- link rel="manifest" href="debudget.webmanifest" / -->
 
-    <link rel="stylesheet" href="./styles.scss" />
-    <script type="module" src="./app.js"></script>
-  </head>
-  <body>
-    <include src="./app/views/nav.html"></include>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
 
-    <main class="container">
-      <include src="./app/views/login.html"></include>
+  <link rel="stylesheet" href="./styles.scss" />
+  <script type="module" src="./app.js"></script>
+</head>
 
+<body>
+  <include src="./app/views/nav.html"></include>
 
-      <!--
-      <section id="user" class="card visually-hidden border-0">
-        <h2 class="card-header bg-dark text-white h5 visually-hidden">User Profile</h2>
-        <div class="card-body p-0">
-          <label for="user_profile" class="fw-bold me-2">Upload user profile:</label>
-          <input id="user_profile" type="file" accept="application/json" />
-        </div>
-      </section>
+  <main class="container">
+    <include src="./app/views/login.html"></include>
 
-      <section id="salary" class="card visually-hidden border-0">
-        <h2 class="card-header bg-dark text-white h5 visually-hidden">Salary</h2>
-        <div class="card-body p-0">
-          <div class="input-group">
-            <label for="pay_amount" class="input-group-text">Pay</label>
-            <input id="pay_amount" type="number" step="0.01" class="form-control">
-            <button class="btn btn-dark">Plan</button>
-          </div>
-        </div>
-      </section>
+    <include src="./app/views/plan.html"></include>
 
-      <section id="plan" class="card visually-hidden border-0">
-        <h2 class="card-header bg-dark text-white h5 visually-hidden">Budget Plan</h2>
-        <div class="card-body p-0"></div>
-      </section>
-      -->
-    </main>
-  </body>
+    <section id="checklist" class="card visually-hidden border-0">
+      <h2 class="card-header bg-dark text-white h5 visually-hidden">Checklist</h2>
+      <div class="card-body p-0"></div>
+    </section>
+  </main>
+
+  <!--
+  <footer class="bg-dark text-white d-flex align-items-center justify-content-center">
+    <div>© 2023 Oventi.</div>
+  </footer>
+  -->
+</body>
+
 </html>
