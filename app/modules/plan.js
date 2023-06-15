@@ -5,14 +5,15 @@ import { get_rest } from '../../lib/rest'
 import { session } from './authenticate'
 import { load_checklist } from './checklist'
 
-const api = get_rest('/api')
-
 export const create_plan = async ({ username, pay_amount, plan }) => {
   const plan_section = dqs('section#plan')
   const pay_amount_input = dqs('section#plan #pay_amount')
   const expenses_table = dqs('section#plan table tbody')
   const add_expense = dqs('section#plan button#add_expense')
   const create_plan = dqs('section#plan button#create_plan')
+
+  const { access_token } = session.get()
+  const api = get_rest('/api', { Authorization: `Bearer ${access_token}` })
 
   expenses_table.replaceChildren()
   if (plan && Array.isArray(plan)) {
@@ -35,7 +36,7 @@ export const create_plan = async ({ username, pay_amount, plan }) => {
       ])
       .filter(([amount, description]) => description !== null)
 
-    await api.patch(`/user/${username}`, { pay_amount, plan })
+    await api.patch(`/user`, { pay_amount, plan })
     const { user } = session.get()
     session.update('user', { ...user, pay_amount, plan })
 

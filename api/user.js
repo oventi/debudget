@@ -1,7 +1,11 @@
-import { _ } from '../../lib/api'
+import { _ } from '../lib/api'
+import jwt from 'jsonwebtoken'
 import { kv } from '@vercel/kv'
 
-export const user = async (new_data, { username }) => {
+export const user = async (new_data, query, { authorization }) => {
+  const [, token] = authorization.split(' ')
+  const { username } = jwt.verify(token, process.env.JWT_SECRET)
+
   const user = await kv.hgetall(username)
   if (!user) {
     return { status: 404, data: null } // http_status_code
